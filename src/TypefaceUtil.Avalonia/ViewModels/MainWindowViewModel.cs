@@ -293,6 +293,7 @@ namespace TypefaceUtil.Avalonia.ViewModels
                     }
                 }
             }
+            typefaceViewModel.Typeface.Dispose();
         }
 
         private void OpenGlyphDetail(GlyphViewModel glyphViewModel)
@@ -336,7 +337,7 @@ namespace TypefaceUtil.Avalonia.ViewModels
         {
             if (!string.IsNullOrEmpty(path))
             {
-                using var typeface = SKTypeface.FromFile(path);
+                var typeface = SKTypeface.FromFile(path);
                 if (typeface != null)
                 {
                     var characterMaps = Read(typeface);
